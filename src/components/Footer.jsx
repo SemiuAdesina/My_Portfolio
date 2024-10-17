@@ -20,7 +20,27 @@ const Footer = () => {
         </div>
     </div>
     <div className="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6">
-        <p>© 2024 Ibrahim Akinpelu. All rights reserved.</p>
+    <p class="flex flex-wrap items-center justify-center text-center gap-2">
+  © 2024
+  <div
+    class="badge-base LI-profile-badge flex flex-col items-center p-2 border border-gray-300 rounded-lg bg-gray-800 shadow-lg"
+    data-locale="en_US"
+    data-size="medium"
+    data-theme="dark"
+    data-type="VERTICAL"
+    data-vanity="akinpeluibrahim"
+    data-version="v1"
+  >
+    <a
+      class="badge-base__link LI-simple-link text-white text-sm font-semibold hover:text-blue-400"
+      href="https://ng.linkedin.com/in/akinpeluibrahim?trk=profile-badge"
+    >
+      Ibrahim Akinpelu
+    </a>
+  </div>
+   All rights reserved.
+</p>
+
         <ul className="flex items-center gap-10 justify-center mt-4 sm:mt-0">
             <li><a target='_blank' href="https://github.com/Kinpelu">GitHub</a></li>
             <li><a target='_blank' href="https://www.linkedin.com/in/ibrahim-akinpelu-950394197/">LinkedIn</a></li>

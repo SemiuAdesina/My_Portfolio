@@ -78,14 +78,14 @@ const Work = () => {
           href="https://dribbble.com/Akinpelu_Ibrahim"
           className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 hover:bg-lightHover duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover"
         >
-          Show Dribbble
+          Dribbble
         </a>
 
         <a
           href="https://www.behance.net/ibrahimakinpelu01"
           className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 hover:bg-lightHover duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover"
         >
-          Show Behance
+          Behance
         </a>
       </div>
     </div>

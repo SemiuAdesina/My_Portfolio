@@ -14,7 +14,7 @@ const Services = () => {
         I am a Graphic Designer | UI/UX designer from Ibadan, Nigeria with 4
         years of experience with different companies like JBS Medicare services,
         For A Girl Child Initiative, Delis Supermarket (Remote), Foreign
-        Investment Network(FIN), IBS Elderly Health and wellbeing Foundation
+        Investment Network(FIN), JBS Elderly Health and wellbeing Foundation
         Africa, JBS Gerontology Centre (Fulltime-Remote).
       </p>
 

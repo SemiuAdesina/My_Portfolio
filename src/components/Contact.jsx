@@ -6,7 +6,9 @@ const Contact = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const hCaptcha = event.target.querySelector('textarea[name=h-captcha-response]').value;
+    const hCaptcha = event.target.querySelector(
+      'textarea[name=h-captcha-response]'
+    ).value;
     if (!hCaptcha) {
       event.preventDefault();
       setResult("Please fill out captcha field");
@@ -101,7 +103,7 @@ const Contact = () => {
           <input
             type="text"
             placeholder="Enter your name"
-            className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90"
+            className="flex-1 p-3 outline-none border-[0.5px] border-transparent rounded-md bg-gradient-to-br from-indigo-200 via-indigo-300 to-indigo-400 text-black focus:ring focus:ring-indigo-500 transition-all duration-300 hover:border-indigo-500"
             required
             name="name"
           />
@@ -109,7 +111,7 @@ const Contact = () => {
           <input
             type="email"
             placeholder="Enter your email"
-            className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90"
+            className="flex-1 p-3 outline-none border-[0.5px] border-transparent rounded-md bg-gradient-to-br from-indigo-200 via-indigo-300 to-indigo-400 text-black focus:ring focus:ring-indigo-500 transition-all duration-300 hover:border-indigo-500"
             required
             name="email"
           />
@@ -117,7 +119,7 @@ const Contact = () => {
         <textarea
           rows="6"
           placeholder="Enter your message"
-          className="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30 dark:border-white/90"
+          className="w-full p-4 outline-none border-[0.5px] border-transparent rounded-md bg-gradient-to-br from-indigo-200 via-indigo-300 to-indigo-400 text-black focus:ring focus:ring-indigo-500 transition-all duration-300 hover:border-indigo-500 mb-6"
           required
           name="message"
         ></textarea>

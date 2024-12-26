@@ -14,6 +14,7 @@ export default {
       fontFamily: {
         Outfit: ["Outfit", "sans-serif"],
         Ovo: ["Ovo", "serif"],
+        Poppins: ["Poppins", "sans-serif"], // Added Poppins font
       },
       // Custom animations
       animation: {

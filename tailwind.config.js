@@ -6,28 +6,36 @@ export default {
   ],
   theme: {
     extend: {
-      gridTemplateColumns:{
-        'auto': 'repeat(auto-fit, minmax(200px, 1fr))'
-    },
-    fontFamily:{
+      // Custom grid template columns
+      gridTemplateColumns: {
+        'auto': 'repeat(auto-fit, minmax(200px, 1fr))',
+      },
+      // Custom fonts
+      fontFamily: {
         Outfit: ["Outfit", "sans-serif"],
-        Ovo: ["Ovo", "serif"]
-    },
-    animation:{
-        spin_slow: 'spin 6s linear infinite'
-    },
-    colors:{
+        Ovo: ["Ovo", "serif"],
+      },
+      // Custom animations
+      animation: {
+        spin_slow: 'spin 6s linear infinite',
+      },
+      // Custom colors
+      colors: {
         lightHover: '#fcf4ff',
         darkHover: '#2a004a',
-        darkTheme: '#11001F'
-    },
-    boxShadow:{
-        'black': '4px 4px 0 #000',
-        'white': '4px 4px 0 #fff',
-    } 
+        darkTheme: '#11001F',
+      },
+      // Custom box shadows
+      boxShadow: {
+        black: '4px 4px 0 #000',
+        white: '4px 4px 0 #fff',
+      },
+      // Custom gradient background
+      backgroundImage: {
+        'light-gradient': 'linear-gradient(to bottom, #f3e6f8, #f7d9e7)', // Light gradient
+      },
     },
   },
-  darkMode: 'selector',
+  darkMode: 'class', // Update dark mode to 'class' to toggle based on a class
   plugins: [],
-}
-
+};

@@ -1,26 +1,30 @@
-import React from 'react'
+import React from 'react';
 
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import Work from './components/Work'
-import Services from './components/Services'
-import About from './components/About'
-import Header from './components/Header'
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar';
+import Header from './components/Header';
+import About from './components/About';
+import Services from './components/Services';
+import Work from './components/Work';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 const App = () => {
-  
   return (
-    <>
-        <Navbar/>
-        <Header/>
-        <About/>
-        <Services/>
-        <Work/>
-        <Contact/>
-        <Footer/>
-    </>
-  )
-}
+    <div className="bg-gradient-to-br from-blue-200 to-purple-400 dark:bg-darkTheme dark:bg-none dark:text-white min-h-screen overflow-x-hidden font-Outfit leading-8">
+      {/* Navbar */}
+      <Navbar />
 
-export default App
+      {/* Main Sections */}
+      <Header />
+      <About />
+      <Services />
+      <Work />
+      <Contact />
+
+      {/* Footer */}
+      <Footer />
+    </div>
+  );
+};
+
+export default App;

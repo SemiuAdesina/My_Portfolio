@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import damozbg from "../assets/damozbg.png";
+import demola from "../assets/demola.png";
 import circular_text from "../assets/circular_text.png";
 import dev_icon from "../assets/dev-icon.png";
 import code_icon from "../assets/code-icon.png";
@@ -41,7 +41,7 @@ const About = () => {
 
           {/* Profile Image */}
           <img
-            src={damozbg}
+            src={demola}
             alt="Profile"
             className="w-48 sm:w-56 md:w-64 lg:w-80 rounded-3xl max-w-none relative z-10"
           />

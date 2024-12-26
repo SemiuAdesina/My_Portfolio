@@ -18,28 +18,28 @@ const Work = () => {
     {
       id: 1,
       title: "Todo App",
-      type: "Frontend Development",
+      type: "Full-stack Development",
       image: todo_app,
       link: "https://todo-app-yg1v.onrender.com", // Replace with the actual live demo link
     },
     {
       id: 2,
       title: "Blog API",
-      type: "Backend Development",
+      type: "Full-stack Development",
       image: blog_api,
       link: "https://bloggin-api-7vgm.onrender.com", // Replace with the actual live demo link
     },
     {
       id: 3,
       title: "Doc Appointment App",
-      type: "Frontend Development",
+      type: "Full-stack Development",
       image: doc_app,
       link: "https://prescripto-frontend-x1dv.onrender.com", // Replace with the actual live demo link
     },
     {
       id: 4,
       title: "Netflix Clone",
-      type: "Frontend Development",
+      type: "Full-stack Development",
       image: netflix_clone,
       link: "https://netflix-clone-two-rho-90.vercel.app/", // Replace with the actual live demo link
     },

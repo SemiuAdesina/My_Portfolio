@@ -22,7 +22,11 @@ import react_js_icon from "../assets/react-js-icon.png";
 import vscode_icon from "../assets/visual-studio-code-icon.png";
 
 const About = () => {
-  // Animation variants for the tools
+  const rippleVariants = {
+    start: { scale: 0, opacity: 1 },
+    end: { scale: 3, opacity: 0 },
+  };
+
   const toolAnimation = {
     hover: { scale: 1.1, rotate: 10 },
     tap: { scale: 0.95 },
@@ -34,19 +38,33 @@ const About = () => {
       <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-Ovo">About me</h2>
 
       <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 my-10 lg:my-20">
-        {/* Image Section */}
-        <div className="max-w-max mx-auto relative group flex-shrink-0">
-          {/* Light Blue Background Hover */}
-          <div className="absolute inset-0 bg-blue-100 rounded-3xl opacity-0 group-hover:opacity-100 transition duration-300 z-0"></div>
+        {/* Profile Section with Ripple Effect */}
+        <div className="relative flex items-center justify-center w-48 sm:w-56 md:w-64 lg:w-80 mx-auto group">
+          {/* Multiple Ripple Effects */}
+          {[...Array(3)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-full h-full rounded-full bg-blue-400 z-0"
+              initial="start"
+              animate="end"
+              variants={rippleVariants}
+              transition={{
+                duration: 2,
+                delay: i * 0.5,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+            />
+          ))}
 
           {/* Profile Image */}
           <img
             src={demola}
             alt="Profile"
-            className="w-48 sm:w-56 md:w-64 lg:w-80 rounded-3xl max-w-none relative z-10"
+            className="w-48 sm:w-56 md:w-64 lg:w-80 rounded-3xl object-cover relative z-10"
           />
 
-          {/* Circular Image */}
+          {/* Circular Icon */}
           <div className="bg-white w-1/3 sm:w-1/2 aspect-square absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-[0_4px_55px_rgba(149,0,162,0.15)] flex items-center justify-center z-20">
             <img
               src={circular_text}
@@ -119,23 +137,9 @@ const About = () => {
           </ul>
 
           {/* Tools Section */}
-          <h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80">
-            Tools I use
-          </h4>
+          <h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80">Tools I use</h4>
           <ul className="flex flex-wrap gap-3 sm:gap-5 mb-10">
-            {[
-              tailwind_css_icon,
-              branching_icon,
-              express_js_icon,
-              git_icon,
-              javascript_icon,
-              mongodb_icon,
-              mysql_icon,
-              node_js_icon,
-              postman_icon,
-              react_js_icon,
-              vscode_icon,
-            ].map((tool, index) => (
+            {[tailwind_css_icon, branching_icon, express_js_icon, git_icon, javascript_icon, mongodb_icon, mysql_icon, node_js_icon, postman_icon, react_js_icon, vscode_icon].map((tool, index) => (
               <motion.li
                 key={index}
                 className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer"
@@ -149,9 +153,7 @@ const About = () => {
           </ul>
 
           {/* Certificates Section */}
-          <h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80">
-            Certificates
-          </h4>
+          <h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80">Certificates</h4>
           <ul className="list-disc ml-5 space-y-2 text-xs sm:text-sm">
             <li>
               <a
@@ -160,8 +162,7 @@ const About = () => {
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:underline"
               >
-                IBM Certificate 1: Developing Back-End Apps with Node.js and
-                Express
+                IBM Certificate 1: Developing Back-End Apps with Node.js and Express
               </a>
             </li>
             <li>

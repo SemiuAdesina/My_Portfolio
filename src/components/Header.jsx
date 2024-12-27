@@ -1,11 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Typewriter from "react-typing-effect"; // Ensure this library is installed
+import Typewriter from "react-typing-effect";
 import pro from "../assets/pro.jpg";
 import right_arrow_white from "../assets/right-arrow-white.png";
 import download_icon from "../assets/download-icon.png";
 import hand_icon from "../assets/hand_icon.png";
-import my_cv from "../assets/My_CV.pdf"; // Import the PDF file
+import my_cv from "../assets/My_CV.pdf";
 
 const Header = () => {
   const rippleVariants = {
@@ -14,10 +14,9 @@ const Header = () => {
   };
 
   return (
-    <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4 morning-bg">
+    <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4 mt-16 lg:mt-20">
       {/* Ripple Effect Container */}
       <div className="relative flex items-center justify-center w-40 h-40">
-        {/* Multiple Ripples */}
         {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
@@ -27,7 +26,7 @@ const Header = () => {
             variants={rippleVariants}
             transition={{
               duration: 2,
-              delay: i * 0.5, // Staggered ripple effect
+              delay: i * 0.5,
               repeat: Infinity,
               repeatType: "loop",
             }}
@@ -44,15 +43,15 @@ const Header = () => {
 
       {/* Dynamic Typewriter Text */}
       <h3 className="flex flex-col gap-2 text-xl md:text-2xl mb-3 font-Ovo">
-        <span>
-          FULL - STACK ENGINEER
-          <img src={hand_icon} alt="Hand Icon" className="w-6 inline ml-2" />
+        <span className="italic">
+          Full-Stack Engineer
+          <img src={hand_icon} alt="Hand waving" className="w-6 inline ml-2" />
         </span>
         <Typewriter
           text={[
             "Hi, I'm Ademola Adesina",
             "Guy-who-turns-ideas-into-code.jsx",
-            "<Always-Coding,-Never-Static/>"
+            "<Always-Coding,-Never-Static/>",
           ]}
           speed={100}
           eraseSpeed={50}
@@ -82,14 +81,16 @@ const Header = () => {
           href="#contact"
           className="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent"
         >
-          Contact Me <img src={right_arrow_white} alt="Arrow Icon" className="w-4" />
+          Contact Me{" "}
+          <img src={right_arrow_white} alt="Arrow Icon" className="w-4" />
         </a>
         <a
-          href={my_cv} // Use the imported PDF path
-          download="Ademola_Adesina_CV.pdf" // Provide a custom name for the downloaded file
+          href={my_cv}
+          download="Ademola_Adesina_CV.pdf"
           className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
         >
-          My Resume <img src={download_icon} alt="Download Icon" className="w-4" />
+          My Resume{" "}
+          <img src={download_icon} alt="Download Icon" className="w-4" />
         </a>
       </div>
     </div>

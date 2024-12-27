@@ -45,14 +45,14 @@ const Header = () => {
       {/* Dynamic Typewriter Text */}
       <h3 className="flex flex-col gap-2 text-xl md:text-2xl mb-3 font-Ovo">
         <span>
-          I'm Ademola Adesina
+          FULL - STACK ENGINEER
           <img src={hand_icon} alt="Hand Icon" className="w-6 inline ml-2" />
         </span>
         <Typewriter
           text={[
-            "I love JavaScript",
-            "A guy who loves React",
-            "A lad who loves Node.js",
+            "Hi, I'm Ademola Adesina",
+            "Guy-who-turns-ideas-into-code.jsx",
+            "<Always-Coding,-Never-Static/>"
           ]}
           speed={100}
           eraseSpeed={50}

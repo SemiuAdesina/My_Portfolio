@@ -7,11 +7,17 @@ import doc_app from "../assets/doc_app.png";
 import netflix_clone from "../assets/netflix_clone.png";
 
 const Work = () => {
-  // Animation variants for project cards
+  // Animation variants for project cards and fade-in effect
   const cardVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
     hover: { scale: 1.05, transition: { duration: 0.2 } },
+  };
+
+  const fadeIn = {
+    initial: { opacity: 0, y: 50 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: "easeOut" },
   };
 
   const projects = [
@@ -54,18 +60,40 @@ const Work = () => {
   ];
 
   return (
-    <div id="work" className="w-full px-[12%] py-10 scroll-mt-20">
-      <h4 className="text-center mb-2 text-lg font-Ovo">My portfolio</h4>
-      <h2 className="text-center text-5xl font-Ovo">My latest work</h2>
-      <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
+    <motion.div
+      id="work"
+      className="w-full px-[12%] py-10 scroll-mt-20"
+      initial="initial"
+      whileInView="whileInView"
+      transition="transition"
+      variants={fadeIn}
+    >
+      {/* Heading Section */}
+      <motion.h4
+        className="text-center mb-2 text-lg font-Ovo"
+        {...fadeIn}
+      >
+        My portfolio
+      </motion.h4>
+      <motion.h2
+        className="text-center text-5xl font-Ovo"
+        {...fadeIn}
+      >
+        My latest work
+      </motion.h2>
+      <motion.p
+        className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo"
+        {...fadeIn}
+      >
         Welcome to my portfolio! Explore a curated selection of projects
         highlighting my expertise in frontend and backend development.
-      </p>
+      </motion.p>
 
+      {/* Projects Grid Section */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 my-10"
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
         variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
       >
         {projects.map((project) => (
@@ -73,26 +101,41 @@ const Work = () => {
             key={project.id}
             className="rounded-lg overflow-hidden shadow-md group"
             variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
             whileHover="hover"
           >
-            <img
+            {/* Project Image */}
+            <motion.img
               src={project.image}
               alt={project.title}
               className="w-full h-64 object-cover"
+              {...fadeIn}
             />
-            <div className="bg-white p-5">
-              <h3 className="font-semibold text-lg">{project.title}</h3>
-              <p className="text-sm text-gray-600">{project.type}</p>
-              <p className="text-sm text-gray-500 mt-2">{project.description}</p>
-              <div className="mt-3">
+            {/* Project Details */}
+            <motion.div className="bg-white p-5" {...fadeIn}>
+              <motion.h3 className="font-semibold text-lg" {...fadeIn}>
+                {project.title}
+              </motion.h3>
+              <motion.p className="text-sm text-gray-600" {...fadeIn}>
+                {project.type}
+              </motion.p>
+              <motion.p className="text-sm text-gray-500 mt-2" {...fadeIn}>
+                {project.description}
+              </motion.p>
+
+              {/* Tech Stack Section */}
+              <motion.div className="mt-3" {...fadeIn}>
                 <p className="text-sm font-semibold">Tech Stack:</p>
                 <ul className="list-disc list-inside text-sm text-gray-600">
                   {project.stack.map((tech, index) => (
                     <li key={index}>{tech}</li>
                   ))}
                 </ul>
-              </div>
-              <div className="mt-3 flex items-center justify-between">
+              </motion.div>
+
+              {/* Call to Action Section */}
+              <motion.div className="mt-3 flex items-center justify-between" {...fadeIn}>
                 <a
                   href={project.link}
                   target="_blank"
@@ -102,12 +145,12 @@ const Work = () => {
                   View Details
                 </a>
                 <img src={send_icon} alt="Send Icon" className="w-5" />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </motion.div>
         ))}
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

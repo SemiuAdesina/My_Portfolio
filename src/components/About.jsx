@@ -22,9 +22,10 @@ import react_js_icon from "../assets/react-js-icon.png";
 import vscode_icon from "../assets/visual-studio-code-icon.png";
 
 const About = () => {
-  const rippleVariants = {
-    start: { scale: 0, opacity: 1 },
-    end: { scale: 3, opacity: 0 },
+  const fadeIn = {
+    initial: { opacity: 0, y: 50 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: "easeOut" },
   };
 
   const toolAnimation = {
@@ -33,31 +34,27 @@ const About = () => {
   };
 
   return (
-    <div id="about" className="w-full px-6 md:px-10 lg:px-[12%] py-10 scroll-mt-20">
-      <h4 className="text-center mb-2 text-lg font-Ovo">Introduction</h4>
-      <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-Ovo">About me</h2>
+    <motion.div
+      id="about"
+      className="w-full px-6 md:px-10 lg:px-[12%] py-10 scroll-mt-20"
+      initial="initial"
+      whileInView="whileInView"
+      transition="transition"
+      variants={fadeIn}
+    >
+      <motion.h4 className="text-center mb-2 text-lg font-Ovo" {...fadeIn}>
+        Introduction
+      </motion.h4>
+      <motion.h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-Ovo" {...fadeIn}>
+        About me
+      </motion.h2>
 
       <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 my-10 lg:my-20">
-        {/* Profile Section with Ripple Effect */}
-        <div className="relative flex items-center justify-center w-48 sm:w-56 md:w-64 lg:w-80 mx-auto group">
-          {/* Multiple Ripple Effects */}
-          {[...Array(3)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-full h-full rounded-full bg-blue-400 z-0"
-              initial="start"
-              animate="end"
-              variants={rippleVariants}
-              transition={{
-                duration: 2,
-                delay: i * 0.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-            />
-          ))}
-
-          {/* Profile Image */}
+        {/* Profile Section without Ripple Effect */}
+        <motion.div
+          className="relative flex items-center justify-center w-48 sm:w-56 md:w-64 lg:w-80 mx-auto group"
+          {...fadeIn}
+        >
           <img
             src={demola}
             alt="Profile"
@@ -77,10 +74,10 @@ const About = () => {
               className="w-1/4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Text Section */}
-        <div className="flex-1">
+        <motion.div className="flex-1" {...fadeIn}>
           <p className="mb-6 lg:mb-10 text-sm sm:text-base md:text-lg max-w-2xl font-Ovo">
             I am a Full-Stack Software Developer with a passion for creating
             scalable, efficient, and user-friendly web applications. With
@@ -92,53 +89,33 @@ const About = () => {
 
           {/* Skill Cards */}
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-2xl">
-            <li className="border-[0.5px] border-gray-400 rounded-xl p-4 sm:p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
-              <img src={code_icon} alt="Code Icon" className="w-6 sm:w-7 mt-2 sm:mt-3 dark:hidden" />
-              <img
-                src={code_icon_dark}
-                alt="Code Icon Dark"
-                className="w-6 sm:w-7 mt-2 sm:mt-3 hidden dark:block"
-              />
-              <h3 className="my-3 sm:my-4 text-sm sm:text-base font-semibold text-gray-700 dark:text-white">
-                Languages
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-600 dark:text-white/80">
-                JavaScript, Node.js, Express.js, MongoDB, MySQL
-              </p>
-            </li>
-            <li className="border-[0.5px] border-gray-400 rounded-xl p-4 sm:p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
-              <img src={edu_icon} alt="Education Icon" className="w-6 sm:w-7 mt-2 sm:mt-3 dark:hidden" />
-              <img
-                src={edu_icon_dark}
-                alt="Education Icon Dark"
-                className="w-6 sm:w-7 mt-2 sm:mt-3 hidden dark:block"
-              />
-              <h3 className="my-3 sm:my-4 text-sm sm:text-base font-semibold text-gray-700 dark:text-white">
-                Education
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-600 dark:text-white/80">
-                Bachelor's Degree in Pharmacy
-              </p>
-            </li>
-            <li className="border-[0.5px] border-gray-400 rounded-xl p-4 sm:p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
-              <img src={project_icon} alt="Projects Icon" className="w-6 sm:w-7 mt-2 sm:mt-3 dark:hidden" />
-              <img
-                src={project_icon_dark}
-                alt="Projects Icon Dark"
-                className="w-6 sm:w-7 mt-2 sm:mt-3 hidden dark:block"
-              />
-              <h3 className="my-3 sm:my-4 text-sm sm:text-base font-semibold text-gray-700 dark:text-white">
-                Projects
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-600 dark:text-white/80">
-                Built more than 30 projects
-              </p>
-            </li>
+            {[
+              { icon: code_icon, darkIcon: code_icon_dark, title: "Languages", desc: "JavaScript, Node.js, Express.js, MongoDB, MySQL" },
+              { icon: edu_icon, darkIcon: edu_icon_dark, title: "Education", desc: "Bachelor's Degree in Pharmacy" },
+              { icon: project_icon, darkIcon: project_icon_dark, title: "Projects", desc: "Built more than 30 projects" }
+            ].map((item, index) => (
+              <motion.li
+                key={index}
+                className="border-[0.5px] border-gray-400 rounded-xl p-4 sm:p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50"
+                {...fadeIn}
+              >
+                <img src={item.icon} alt={item.title} className="w-6 sm:w-7 mt-2 sm:mt-3 dark:hidden" />
+                <img src={item.darkIcon} alt={`${item.title} Dark`} className="w-6 sm:w-7 mt-2 sm:mt-3 hidden dark:block" />
+                <h3 className="my-3 sm:my-4 text-sm sm:text-base font-semibold text-gray-700 dark:text-white">
+                  {item.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-white/80">
+                  {item.desc}
+                </p>
+              </motion.li>
+            ))}
           </ul>
 
           {/* Tools Section */}
-          <h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80">Tools I use</h4>
-          <ul className="flex flex-wrap gap-3 sm:gap-5 mb-10">
+          <motion.h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80" {...fadeIn}>
+            Tools I use
+          </motion.h4>
+          <motion.ul className="flex flex-wrap gap-3 sm:gap-5 mb-10" {...fadeIn}>
             {[tailwind_css_icon, branching_icon, express_js_icon, git_icon, javascript_icon, mongodb_icon, mysql_icon, node_js_icon, postman_icon, react_js_icon, vscode_icon].map((tool, index) => (
               <motion.li
                 key={index}
@@ -150,11 +127,13 @@ const About = () => {
                 <img src={tool} alt="Tool Icon" className="w-5 sm:w-7" />
               </motion.li>
             ))}
-          </ul>
+          </motion.ul>
 
           {/* Certificates Section */}
-          <h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80">Certificates</h4>
-          <ul className="list-disc ml-5 space-y-2 text-xs sm:text-sm">
+          <motion.h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80" {...fadeIn}>
+            Certificates
+          </motion.h4>
+          <motion.ul className="list-disc ml-5 space-y-2 text-xs sm:text-sm" {...fadeIn}>
             <li>
               <a
                 href="https://coursera.org/verify/1RZVVK9DRQSU"
@@ -162,7 +141,7 @@ const About = () => {
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:underline"
               >
-                IBM Certificate 1: Developing Back-End Apps with Node.js and Express
+                IBM Certificate: Developing Back-End Apps with Node.js and Express
               </a>
             </li>
             <li>
@@ -172,13 +151,23 @@ const About = () => {
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:underline"
               >
-                IBM Certificate 2: Getting Started with Git and GitHub
+                IBM Certificate: Getting Started with Git and GitHub
               </a>
             </li>
-          </ul>
-        </div>
+            <li>
+              <a
+                href="https://coursera.org/verify/ZLZDU8631Z9V"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                IBM Certificate: Node.js & MongoDB: Developing Back-end Database Applications
+              </a>
+            </li>
+          </motion.ul>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

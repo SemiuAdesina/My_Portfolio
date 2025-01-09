@@ -5,24 +5,61 @@ import backend_icon from "../assets/database-web-app-code-icon.png"; // Backend 
 import right_arrow from "../assets/right-arrow.png";
 
 const Services = () => {
-  // Animation variants for the cards
+  // Animation variants for card hover effects
   const cardVariants = {
+    initial: { opacity: 0, y: 50 },
+    whileInView: { opacity: 1, y: 0 },
     hover: { scale: 1.05, transition: { duration: 0.3 } },
     tap: { scale: 0.95 },
   };
 
+  // Fade-in animation for headings and descriptions
+  const fadeIn = {
+    initial: { opacity: 0, y: 50 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: "easeOut" },
+  };
+
   return (
-    <div id="services" className="w-full px-[12%] py-10 scroll-mt-20">
-      <h4 className="text-center mb-2 text-lg font-Ovo">What I offer</h4>
-      <h2 className="text-center text-5xl font-Ovo">My services</h2>
-      <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
+    <motion.div
+      id="services"
+      className="w-full px-[12%] py-10 scroll-mt-20"
+      initial="initial"
+      whileInView="whileInView"
+      transition="transition"
+      variants={fadeIn}
+    >
+      {/* Heading Section */}
+      <motion.h4
+        className="text-center mb-2 text-lg font-Ovo"
+        variants={fadeIn}
+        {...fadeIn}
+      >
+        What I offer
+      </motion.h4>
+      <motion.h2
+        className="text-center text-5xl font-Ovo"
+        variants={fadeIn}
+        {...fadeIn}
+      >
+        My services
+      </motion.h2>
+      <motion.p
+        className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo"
+        variants={fadeIn}
+        {...fadeIn}
+      >
         I am a Frontend Developer | Backend Developer with 2 years of freelance
         experience on LinkedIn and Upwork, delivering high-quality web
         applications and solutions to clients globally. I specialize in building
         scalable, user-friendly, and visually appealing web applications.
-      </p>
+      </motion.p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10 justify-center">
+      {/* Services Cards Section */}
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10 justify-center"
+        variants={fadeIn}
+      >
         {[
           {
             icon: frontend_icon,
@@ -39,28 +76,42 @@ const Services = () => {
         ].map((service, index) => (
           <motion.div
             key={index}
-            className="border border-gray-400 rounded-lg px-8 py-12 hover:bg-gray-100 dark:hover:bg-gray-700" // Added hover background color
+            className="border border-gray-400 rounded-lg px-8 py-12 hover:bg-gray-100 dark:hover:bg-gray-700"
             variants={cardVariants}
+            initial="initial"
+            whileInView="whileInView"
             whileHover="hover"
             whileTap="tap"
           >
-            <img src={service.icon} alt={service.title} className="w-10 mx-auto" />
-            <h3 className="text-lg my-4 text-center text-gray-700 dark:text-white">
+            <motion.img
+              src={service.icon}
+              alt={service.title}
+              className="w-10 mx-auto"
+              variants={fadeIn}
+            />
+            <motion.h3
+              className="text-lg my-4 text-center text-gray-700 dark:text-white"
+              variants={fadeIn}
+            >
               {service.title}
-            </h3>
-            <p className="text-sm text-gray-600 leading-5 dark:text-white/80 text-center">
+            </motion.h3>
+            <motion.p
+              className="text-sm text-gray-600 leading-5 dark:text-white/80 text-center"
+              variants={fadeIn}
+            >
               {service.description}
-            </p>
-            <a
+            </motion.p>
+            <motion.a
               href="#"
               className="flex items-center justify-center gap-2 text-sm mt-5 text-blue-500 hover:underline"
+              variants={fadeIn}
             >
               Read more <img src={right_arrow} alt="Arrow" className="w-4" />
-            </a>
+            </motion.a>
           </motion.div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

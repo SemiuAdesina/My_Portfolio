@@ -67,15 +67,15 @@ const Footer = () => {
         className="text-center sm:flex items-center justify-between border-t border-gray-400 mx-6 sm:mx-[10%] mt-12 py-6"
         {...fadeIn}
       >
-        {/* Copyright Section with Extra Spacing for Android Nord 200 */}
+        {/* Copyright Section with Extra Margin for Phone Screens */}
         <motion.p
-          className="text-xs sm:text-sm flex flex-wrap items-center justify-center gap-2 text-gray-700 dark:text-white max-[400px]:mb-4"
+          className="text-xs sm:text-sm flex flex-wrap items-center justify-center gap-2 text-gray-700 dark:text-white mb-6 sm:mb-0 max-[400px]:mb-8"
           {...fadeIn}
         >
           © {currentYear} Ademola Adesina. All rights reserved.
         </motion.p>
 
-        {/* Social Media Section with Reduced Size and Adjusted Spacing for Nord 200 */}
+        {/* Social Media Section with Reduced Size and Extra Margin */}
         <motion.ul
           className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 max-[400px]:gap-3 max-[400px]:mt-2"
           {...fadeIn}
@@ -162,7 +162,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
-
-

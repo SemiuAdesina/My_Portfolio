@@ -24,32 +24,32 @@ const Header = () => {
 
   return (
     <motion.div
-      className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4 mt-16 lg:mt-20"
+      className="w-full max-w-3xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-6 px-4 sm:px-6 mt-12 lg:mt-20"
       initial="initial"
       whileInView="whileInView"
       transition="transition"
       variants={fadeInAnimation}
     >
-      {/* Profile Image (with spring effect) */}
+      {/* Profile Image (Fixed for all screen sizes) */}
       <motion.div
-        className="relative flex items-center justify-center w-40 h-40"
+        className="relative flex items-center justify-center w-28 sm:w-36 md:w-40 lg:w-44 h-28 sm:h-36 md:h-40 lg:h-44"
         {...profileImageAnimation}
       >
         <img
           src={pro}
           alt="Profile"
-          className="rounded-full w-32 h-32 object-cover relative z-10"
+          className="rounded-full w-full h-full object-cover relative z-10 border-4 border-white dark:border-darkTheme shadow-lg"
         />
       </motion.div>
 
       {/* Dynamic Typewriter Text */}
       <motion.h3
-        className="flex flex-col gap-2 text-xl md:text-2xl mb-3 font-Ovo"
+        className="flex flex-col gap-2 text-lg sm:text-xl md:text-2xl mb-3 font-Ovo"
         {...fadeInAnimation}
       >
         <span className="italic">
           Full-Stack Engineer
-          <img src={hand_icon} alt="Hand waving" className="w-6 inline ml-2" />
+          <img src={hand_icon} alt="Hand waving" className="w-5 sm:w-6 inline ml-2" />
         </span>
         <Typewriter
           text={[
@@ -66,7 +66,7 @@ const Header = () => {
 
       {/* Main Heading */}
       <motion.h1
-        className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo"
+        className="text-2xl sm:text-4xl lg:text-5xl font-Ovo"
         {...fadeInAnimation}
       >
         Full-Stack Software Engineer | MERN Stack Specialist | Freelance Expert
@@ -74,7 +74,7 @@ const Header = () => {
 
       {/* Description */}
       <motion.p
-        className="max-w-2xl mx-auto font-Ovo"
+        className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg font-Ovo"
         {...fadeInAnimation}
       >
         I am a Full-Stack Software Engineer with over 2 years of experience
@@ -92,7 +92,7 @@ const Header = () => {
       >
         <a
           href="#contact"
-          className="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent"
+          className="px-8 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent"
         >
           Contact Me{" "}
           <img src={right_arrow_white} alt="Arrow Icon" className="w-4" />
@@ -100,7 +100,7 @@ const Header = () => {
         <a
           href={my_cv}
           download="Ademola_Adesina_CV.pdf"
-          className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
+          className="px-8 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
         >
           My Resume{" "}
           <img src={download_icon} alt="Download Icon" className="w-4" />
@@ -111,3 +111,4 @@ const Header = () => {
 };
 
 export default Header;
+

@@ -46,13 +46,13 @@ const Footer = () => {
             <motion.img
               src={mail_icon}
               alt="Mail Icon"
-              className="w-4 sm:w-5 dark:hidden"
+              className="w-5 sm:w-6 dark:hidden"
               {...fadeIn}
             />
             <motion.img
               src={mail_icon_dark}
               alt="Mail Icon Dark"
-              className="w-4 sm:w-5 hidden dark:block"
+              className="w-5 sm:w-6 hidden dark:block"
               {...fadeIn}
             />
             <motion.span className="text-gray-700 dark:text-white text-center text-xs sm:text-sm" {...fadeIn}>
@@ -62,86 +62,94 @@ const Footer = () => {
         </motion.div>
       </div>
 
-      {/* Social Media Section - REDUCED ICON SIZE */}
+      {/* Social Media Section */}
       <motion.div
         className="text-center sm:flex items-center justify-between border-t border-gray-400 mx-6 sm:mx-[10%] mt-12 py-6"
         {...fadeIn}
       >
+        {/* Copyright Section with Extra Spacing for Android Nord 200 */}
         <motion.p
-          className="text-xs sm:text-sm flex flex-wrap items-center justify-center gap-2 text-gray-700 dark:text-white"
+          className="text-xs sm:text-sm flex flex-wrap items-center justify-center gap-2 text-gray-700 dark:text-white max-[400px]:mb-4"
           {...fadeIn}
         >
           © {currentYear} Ademola Adesina. All rights reserved.
         </motion.p>
 
-        {/* FIXED SOCIAL MEDIA ICONS + REDUCED SIZE */}
+        {/* Social Media Section with Reduced Size and Adjusted Spacing for Nord 200 */}
         <motion.ul
-          className="flex flex-nowrap items-center justify-center gap-3 sm:gap-4"
+          className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 max-[400px]:gap-3 max-[400px]:mt-2"
           {...fadeIn}
         >
+          {/* GitHub */}
           <li className="flex items-center gap-2">
             <motion.img
               src={github_icon}
               alt="GitHub Icon"
-              className="w-3 sm:w-4"
+              className="w-5 sm:w-6 max-[400px]:w-3"
               {...fadeIn}
             />
             <motion.a
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/semiuAdesina"
-              className="text-gray-700 dark:text-white hover:text-blue-500 text-xs sm:text-sm"
+              className="text-gray-700 dark:text-white hover:text-blue-500 text-xs sm:text-sm max-[400px]:text-[10px]"
               {...fadeIn}
             >
               GitHub
             </motion.a>
           </li>
+
+          {/* LinkedIn */}
           <li className="flex items-center gap-2">
             <motion.img
               src={linkedin_icon}
               alt="LinkedIn Icon"
-              className="w-3 sm:w-4"
+              className="w-5 sm:w-6 max-[400px]:w-3"
               {...fadeIn}
             />
             <motion.a
               target="_blank"
               rel="noopener noreferrer"
               href="https://www.linkedin.com/in/semiu-ademola-adesina-585141319?trk=contact-info"
-              className="text-gray-700 dark:text-white hover:text-blue-500 text-xs sm:text-sm"
+              className="text-gray-700 dark:text-white hover:text-blue-500 text-xs sm:text-sm max-[400px]:text-[10px]"
               {...fadeIn}
             >
               LinkedIn
             </motion.a>
           </li>
+
+          {/* Twitter (X) */}
           <li className="flex items-center gap-2">
             <motion.img
               src={x_icon}
               alt="X Icon"
-              className="w-3 sm:w-4"
+              className="w-5 sm:w-6 max-[400px]:w-3"
               {...fadeIn}
             />
             <motion.a
               target="_blank"
               rel="noopener noreferrer"
               href="https://x.com/Damozpixie1"
-              className="text-gray-700 dark:text-white hover:text-blue-500 text-xs sm:text-sm"
+              className="text-gray-700 dark:text-white hover:text-blue-500 text-xs sm:text-sm max-[400px]:text-[10px]"
               {...fadeIn}
             >
               Twitter
             </motion.a>
           </li>
+
+          {/* WhatsApp */}
           <li className="flex items-center gap-2">
             <motion.img
               src={whatsapp_icon}
               alt="WhatsApp Icon"
-              className="w-3 sm:w-4"
+              className="w-5 sm:w-6 max-[400px]:w-3"
               {...fadeIn}
             />
             <motion.a
               target="_blank"
               rel="noopener noreferrer"
               href="https://wa.me/c/2348123057607"
-              className="text-gray-700 dark:text-white hover:text-blue-500 text-xs sm:text-sm"
+              className="text-gray-700 dark:text-white hover:text-blue-500 text-xs sm:text-sm max-[400px]:text-[10px]"
               {...fadeIn}
             >
               WhatsApp

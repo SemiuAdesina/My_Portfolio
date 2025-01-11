@@ -22,11 +22,12 @@ import react_js_icon from "../assets/react-js-icon.png";
 import vscode_icon from "../assets/visual-studio-code-icon.png";
 
 const About = () => {
-  const fadeIn = {
-    initial: { opacity: 0, y: 50 },
-    whileInView: { opacity: 1, y: 0 },
+  // Framer Motion Variants
+  const fadeIn = (direction = "up") => ({
+    initial: { opacity: 0, x: direction === "left" ? -50 : 50 },
+    whileInView: { opacity: 1, x: 0 },
     transition: { duration: 0.8, ease: "easeOut" },
-  };
+  });
 
   const toolAnimation = {
     hover: { scale: 1.1, rotate: 10 },
@@ -40,44 +41,38 @@ const About = () => {
       initial="initial"
       whileInView="whileInView"
       transition="transition"
-      variants={fadeIn}
+      variants={fadeIn()}
     >
-      <motion.h4 className="text-center mb-2 text-lg font-Ovo" {...fadeIn}>
+      {/* Section Heading */}
+      <motion.h4 className="text-center mb-2 text-lg font-Ovo" {...fadeIn("left")}>
         Introduction
       </motion.h4>
-      <motion.h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-Ovo" {...fadeIn}>
+      <motion.h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-Ovo" {...fadeIn("right")}>
         About me
       </motion.h2>
 
+      {/* Main Section */}
       <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 my-10 lg:my-20">
-        {/* Profile Section without Ripple Effect */}
+        
+        {/* Profile Section (No Ripple Effect) */}
         <motion.div
           className="relative flex items-center justify-center w-48 sm:w-56 md:w-64 lg:w-80 mx-auto group"
-          {...fadeIn}
+          {...fadeIn("left")}
         >
           <img
             src={demola}
             alt="Profile"
             className="w-48 sm:w-56 md:w-64 lg:w-80 rounded-3xl object-cover relative z-10"
           />
-
           {/* Circular Icon */}
-          <div className="bg-white w-1/3 sm:w-1/2 aspect-square absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-[0_4px_55px_rgba(149,0,162,0.15)] flex items-center justify-center z-20">
-            <img
-              src={circular_text}
-              alt="Circular"
-              className="w-full rounded-full animate-spin_slow"
-            />
-            <img
-              src={dev_icon}
-              alt="Developer Icon"
-              className="w-1/4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            />
+          <div className="bg-white w-1/3 sm:w-1/2 aspect-square absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-lg flex items-center justify-center z-20">
+            <img src={circular_text} alt="Circular" className="w-full rounded-full animate-spin_slow" />
+            <img src={dev_icon} alt="Developer Icon" className="w-1/4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
           </div>
         </motion.div>
 
-        {/* Text Section */}
-        <motion.div className="flex-1" {...fadeIn}>
+        {/* About Me Text Section */}
+        <motion.div className="flex-1" {...fadeIn("right")}>
           <p className="mb-6 lg:mb-10 text-sm sm:text-base md:text-lg max-w-2xl font-Ovo">
             I am a Full-Stack Software Developer with a passion for creating
             scalable, efficient, and user-friendly web applications. With
@@ -87,7 +82,7 @@ const About = () => {
             challenging problems and bring ideas to life.
           </p>
 
-          {/* Skill Cards */}
+          {/* Skills Section (Alternating from Right and Left) */}
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-2xl">
             {[
               { icon: code_icon, darkIcon: code_icon_dark, title: "Languages", desc: "JavaScript, Node.js, Express.js, MongoDB, MySQL" },
@@ -97,7 +92,10 @@ const About = () => {
               <motion.li
                 key={index}
                 className="border-[0.5px] border-gray-400 rounded-xl p-4 sm:p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50"
-                {...fadeIn}
+                variants={fadeIn(index % 2 === 0 ? "right" : "left")} // Alternates direction
+                initial="initial"
+                whileInView="whileInView"
+                transition="transition"
               >
                 <img src={item.icon} alt={item.title} className="w-6 sm:w-7 mt-2 sm:mt-3 dark:hidden" />
                 <img src={item.darkIcon} alt={`${item.title} Dark`} className="w-6 sm:w-7 mt-2 sm:mt-3 hidden dark:block" />
@@ -111,11 +109,11 @@ const About = () => {
             ))}
           </ul>
 
-          {/* Tools Section */}
-          <motion.h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80" {...fadeIn}>
+          {/* Tools Section (Alternating) */}
+          <motion.h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80" {...fadeIn("left")}>
             Tools I use
           </motion.h4>
-          <motion.ul className="flex flex-wrap gap-3 sm:gap-5 mb-10" {...fadeIn}>
+          <motion.ul className="flex flex-wrap gap-3 sm:gap-5 mb-10" {...fadeIn("right")}>
             {[tailwind_css_icon, branching_icon, express_js_icon, git_icon, javascript_icon, mongodb_icon, mysql_icon, node_js_icon, postman_icon, react_js_icon, vscode_icon].map((tool, index) => (
               <motion.li
                 key={index}
@@ -128,43 +126,6 @@ const About = () => {
               </motion.li>
             ))}
           </motion.ul>
-
-          {/* Certificates Section */}
-          <motion.h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80" {...fadeIn}>
-            Certificates
-          </motion.h4>
-          <motion.ul className="list-disc ml-5 space-y-2 text-xs sm:text-sm" {...fadeIn}>
-            <li>
-              <a
-                href="https://coursera.org/verify/1RZVVK9DRQSU"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
-              >
-                IBM Certificate: Developing Back-End Apps with Node.js and Express
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://coursera.org/verify/ZCBM4C104RLR"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
-              >
-                IBM Certificate: Getting Started with Git and GitHub
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://coursera.org/verify/ZLZDU8631Z9V"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
-              >
-                IBM Certificate: Node.js & MongoDB: Developing Back-end Database Applications
-              </a>
-            </li>
-          </motion.ul>
         </motion.div>
       </div>
     </motion.div>
@@ -172,3 +133,4 @@ const About = () => {
 };
 
 export default About;
+

@@ -71,7 +71,7 @@ const Contact = () => {
       transition="transition"
       variants={fadeIn}
     >
-      {/* ✅ Card Container (Reduced Size for Phones) */}
+      {/* ✅ Card Container (Adjusted for Phones) */}
       <motion.div
         className="max-w-md w-[90%] sm:max-w-lg bg-transparent backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-3xl shadow-2xl p-6 sm:p-12 transition-all duration-500 hover:shadow-lg dark:hover:shadow-purple-600"
         initial="initial"
@@ -101,7 +101,7 @@ const Contact = () => {
             value="Ademola Adesina - New Form Submission"
           />
 
-          {/* ✅ Reduced Input Size for Phones */}
+          {/* Input Fields */}
           <motion.input
             type="text"
             placeholder="Your Name"
@@ -129,9 +129,9 @@ const Contact = () => {
             {...fadeIn}
           ></motion.textarea>
 
-          {/* Captcha Section */}
+          {/* ✅ Updated Captcha Section for Phones */}
           <motion.div
-            className="h-captcha mb-4"
+            className="h-captcha mb-4 flex justify-center items-center max-w-xs sm:max-w-full mx-auto scale-[0.85] sm:scale-100"
             data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
             {...fadeIn}
           ></motion.div>
@@ -160,3 +160,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

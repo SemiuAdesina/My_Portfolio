@@ -65,15 +65,15 @@ const Contact = () => {
   return (
     <motion.div
       id="contact"
-      className="w-full flex items-center justify-center py-16"
+      className="w-full flex items-center justify-center py-10 sm:py-16"
       initial="initial"
       whileInView="whileInView"
       transition="transition"
       variants={fadeIn}
     >
-      {/* Card Container */}
+      {/* ✅ Card Container (Reduced Size for Phones) */}
       <motion.div
-        className="max-w-lg w-full bg-transparent backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-3xl shadow-2xl p-8 md:p-12 transition-all duration-500 hover:shadow-lg dark:hover:shadow-purple-600"
+        className="max-w-md w-[90%] sm:max-w-lg bg-transparent backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-3xl shadow-2xl p-6 sm:p-12 transition-all duration-500 hover:shadow-lg dark:hover:shadow-purple-600"
         initial="initial"
         whileInView="whileInView"
         transition="transition"
@@ -81,59 +81,57 @@ const Contact = () => {
       >
         {/* Heading Section */}
         <motion.h2
-          className="text-4xl font-semibold text-center mb-4 text-gray-800 dark:text-white"
+          className="text-3xl sm:text-4xl font-semibold text-center mb-4 text-gray-800 dark:text-white"
           {...fadeIn}
         >
           Get in Touch
         </motion.h2>
         <motion.p
-          className="text-center text-gray-600 dark:text-gray-300 mb-8"
+          className="text-center text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base"
           {...fadeIn}
         >
-          Have a question or want to work together? Feel free to reach out!
+          Have a question or want to work together? Reach out to me!
         </motion.p>
 
         {/* Form Section */}
-        <motion.form onSubmit={onSubmit} className="space-y-6" {...fadeIn}>
+        <motion.form onSubmit={onSubmit} className="space-y-4 sm:space-y-6" {...fadeIn}>
           <input
             type="hidden"
             name="subject"
             value="Ademola Adesina - New Form Submission"
           />
 
-          {/* Name Field */}
+          {/* ✅ Reduced Input Size for Phones */}
           <motion.input
             type="text"
             placeholder="Your Name"
-            className="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
             required
             name="name"
             {...fadeIn}
           />
 
-          {/* Email Field */}
           <motion.input
             type="email"
             placeholder="Your Email"
-            className="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
             required
             name="email"
             {...fadeIn}
           />
 
-          {/* Message Field */}
           <motion.textarea
-            rows="5"
+            rows="4"
             placeholder="Your Message"
-            className="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
             required
             name="message"
             {...fadeIn}
           ></motion.textarea>
 
-          {/* ✅ Fixed hCaptcha Section */}
+          {/* Captcha Section */}
           <motion.div
-            className="h-captcha mb-6"
+            className="h-captcha mb-4"
             data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
             {...fadeIn}
           ></motion.div>
@@ -141,16 +139,16 @@ const Contact = () => {
           {/* Submit Button */}
           <motion.button
             type="submit"
-            className="w-full py-4 px-6 flex items-center justify-center gap-2 rounded-xl bg-black text-white font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-500"
+            className="w-full py-3 px-6 flex items-center justify-center gap-2 rounded-lg bg-black text-white font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-500"
             {...fadeIn}
           >
             Send Message
             <img src={right_arrow_white} alt="Arrow Icon" className="w-5" />
           </motion.button>
 
-          {/* Form Result Message (Fixed Feedback) */}
+          {/* Form Result Message */}
           <motion.p
-            className="mt-4 text-center text-gray-700 dark:text-white"
+            className="mt-4 text-center text-gray-700 dark:text-white text-sm"
             {...fadeIn}
           >
             {result}

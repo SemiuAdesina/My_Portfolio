@@ -136,10 +136,10 @@ const Contact = () => {
             {...fadeIn}
           ></motion.div>
 
-          {/* Submit Button */}
+          {/* ✅ Send Button with Gradient for Default & Hover */}
           <motion.button
             type="submit"
-            className="w-full py-3 px-6 flex items-center justify-center gap-2 rounded-lg bg-black text-white font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-500"
+            className="w-full py-3 px-6 flex items-center justify-center gap-2 rounded-lg text-white font-semibold shadow-md bg-gradient-to-r from-[rgb(255,215,0)] to-red-500 hover:bg-gradient-to-r hover:from-[rgb(255,215,0)] hover:to-red-500 hover:scale-105 transition-all duration-500"
             {...fadeIn}
           >
             Send Message
@@ -160,4 +160,7 @@ const Contact = () => {
 };
 
 export default Contact;
+
+
+
 

@@ -1,5 +1,6 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import Preloader from './components/Preloader';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import About from './components/About';
@@ -7,9 +8,11 @@ import Services from './components/Services';
 import Work from './components/Work';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import ParticlesBackground from './components/ParticlesBackground'; // Import particles
+import ParticlesBackground from './components/ParticlesBackground';
 
 const App = () => {
+  const [loadingComplete, setLoadingComplete] = useState(false);
+
   return (
     <div className="relative bg-gradient-to-br from-blue-200 to-purple-400 dark:bg-darkTheme dark:bg-none dark:text-white min-h-screen overflow-x-hidden font-Outfit leading-8">
       
@@ -21,20 +24,25 @@ const App = () => {
         <ParticlesBackground />
       </div>
 
-      {/* Navbar */}
-      <Navbar />
+      {/* Preloader Animation (runs once before content loads) */}
+      <AnimatePresence>
+        {!loadingComplete && <Preloader setLoadingComplete={setLoadingComplete} />}
+      </AnimatePresence>
 
-      {/* Main Sections */}
-      <main className="flex flex-col items-center justify-center w-full gap-12">
-        <Header />
-        <About />
-        <Services />
-        <Work />
-        <Contact />
-      </main>
-
-      {/* Footer */}
-      <Footer />
+      {/* Content only displays after Preloader completes */}
+      {loadingComplete && (
+        <>
+          <Navbar />
+          <main className="flex flex-col items-center justify-center w-full gap-12">
+            <Header />
+            <About />
+            <Services />
+            <Work />
+            <Contact />
+          </main>
+          <Footer />
+        </>
+      )}
     </div>
   );
 };

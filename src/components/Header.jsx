@@ -30,7 +30,7 @@ const Header = () => {
       transition="transition"
       variants={fadeInAnimation}
     >
-      {/* Profile Image (Fixed for all screen sizes) */}
+      {/* Profile Image (White border removed) */}
       <motion.div
         className="relative flex items-center justify-center w-28 sm:w-36 md:w-40 lg:w-44 h-28 sm:h-36 md:h-40 lg:h-44"
         {...profileImageAnimation}
@@ -38,7 +38,7 @@ const Header = () => {
         <img
           src={pro}
           alt="Profile"
-          className="rounded-full w-full h-full object-cover relative z-10 border-4 border-white dark:border-darkTheme shadow-lg"
+          className="rounded-full w-full h-full object-cover relative z-10 shadow-lg"
         />
       </motion.div>
 
@@ -111,4 +111,5 @@ const Header = () => {
 };
 
 export default Header;
+
 

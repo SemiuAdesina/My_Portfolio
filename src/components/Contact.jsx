@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import right_arrow_white from "../assets/right-arrow-white.png";
 
 const Contact = () => {
@@ -55,46 +54,20 @@ const Contact = () => {
     loadCaptchaScript();
   }, []);
 
-  // Framer Motion Animation Variants
-  const fadeIn = {
-    initial: { opacity: 0, y: 50 },
-    whileInView: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, ease: "easeOut" },
-  };
-
   return (
-    <motion.div
-      id="contact"
-      className="w-full flex items-center justify-center py-10 sm:py-16"
-      initial="initial"
-      whileInView="whileInView"
-      transition="transition"
-      variants={fadeIn}
-    >
-      {/* ✅ Card Container (Adjusted for Phones) */}
-      <motion.div
-        className="max-w-md w-[90%] sm:max-w-lg bg-transparent backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-3xl shadow-2xl p-6 sm:p-12 transition-all duration-500 hover:shadow-lg dark:hover:shadow-purple-600"
-        initial="initial"
-        whileInView="whileInView"
-        transition="transition"
-        variants={fadeIn}
-      >
+    <div id="contact" className="w-full flex items-center justify-center py-10 sm:py-16">
+      {/* ✅ Card Container (Animation Removed) */}
+      <div className="max-w-md w-[90%] sm:max-w-lg bg-transparent backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-3xl shadow-2xl p-6 sm:p-12 transition-all duration-500 hover:shadow-lg dark:hover:shadow-purple-600">
         {/* Heading Section */}
-        <motion.h2
-          className="text-3xl sm:text-4xl font-semibold text-center mb-4 text-gray-800 dark:text-white"
-          {...fadeIn}
-        >
+        <h2 className="text-3xl sm:text-4xl font-semibold text-center mb-4 text-gray-800 dark:text-white">
           Get in Touch
-        </motion.h2>
-        <motion.p
-          className="text-center text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base"
-          {...fadeIn}
-        >
+        </h2>
+        <p className="text-center text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
           Have a question or want to work together? Reach out to me!
-        </motion.p>
+        </p>
 
         {/* Form Section */}
-        <motion.form onSubmit={onSubmit} className="space-y-4 sm:space-y-6" {...fadeIn}>
+        <form onSubmit={onSubmit} className="space-y-4 sm:space-y-6">
           <input
             type="hidden"
             name="subject"
@@ -102,64 +75,57 @@ const Contact = () => {
           />
 
           {/* Input Fields */}
-          <motion.input
+          <input
             type="text"
             placeholder="Your Name"
             className="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
             required
             name="name"
-            {...fadeIn}
           />
 
-          <motion.input
+          <input
             type="email"
             placeholder="Your Email"
             className="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
             required
             name="email"
-            {...fadeIn}
           />
 
-          <motion.textarea
+          <textarea
             rows="4"
             placeholder="Your Message"
             className="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
             required
             name="message"
-            {...fadeIn}
-          ></motion.textarea>
+          ></textarea>
 
           {/* ✅ Updated Captcha Section for Phones */}
-          <motion.div
+          <div
             className="h-captcha mb-4 flex justify-center items-center max-w-xs sm:max-w-full mx-auto scale-[0.85] sm:scale-100"
             data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
-            {...fadeIn}
-          ></motion.div>
+          ></div>
 
-          {/* ✅ Send Button with Gradient for Default & Hover */}
-          <motion.button
+          {/* ✅ Send Button with Gradient */}
+          <button
             type="submit"
             className="w-full py-3 px-6 flex items-center justify-center gap-2 rounded-lg text-white font-semibold shadow-md bg-gradient-to-r from-[rgb(255,215,0)] to-red-500 hover:bg-gradient-to-r hover:from-[rgb(255,215,0)] hover:to-red-500 hover:scale-105 transition-all duration-500"
-            {...fadeIn}
           >
             Send Message
             <img src={right_arrow_white} alt="Arrow Icon" className="w-5" />
-          </motion.button>
+          </button>
 
           {/* Form Result Message */}
-          <motion.p
-            className="mt-4 text-center text-gray-700 dark:text-white text-sm"
-            {...fadeIn}
-          >
+          <p className="mt-4 text-center text-gray-700 dark:text-white text-sm">
             {result}
-          </motion.p>
-        </motion.form>
-      </motion.div>
-    </motion.div>
+          </p>
+        </form>
+      </div>
+    </div>
   );
 };
 
 export default Contact;
+
 
 
 
